@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "23dc83c1-9303-466c-ac7f-caf0cb7de60c",
+		"name": "BannerSliderGraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SliderBanner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  Slider(filter: {slider_id:{eq:\"3\"}},pageSize: 5, currentPage: 1) {\n    items {\n      slider_id\n      title\n      Banner{\n        items{\n          banner_id\n          slider_id\n          name\n          link\n          media\n          media_alt\n          caption\n        }\n      }\n    }\n    total_count\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "system_config",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{ \n    storeConfig {\n        banner_slider_general_enable\n        banner_slider_general_enable_at_home\n        banner_slider_general_home_slider\n        banner_slider_color_option\n        banner_slider_navbar\n        banner_slider_arrow\n        banner_slider_autoplay\n        banner_slider_dots\n        banner_slider_infinite_looping\n        banner_slider_autoplay_speed\n        banner_slider_breakpoints\n        banner_slider_speed\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"protocol": "https",
+					"host": [
+						"test",
+						"mageinic",
+						"com"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

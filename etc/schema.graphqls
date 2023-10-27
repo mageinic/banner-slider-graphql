@@ -1,0 +1,63 @@
+type Query {
+    Slider(
+     filter: SliderFilterInput @doc(description: "Apply filters by filed.")
+     pageSize: Int = 5 @doc(description: "The maximum number of pickup locations to return at once. The attribute is optional.")
+     currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1.")
+     ):SliderOutput @doc(description: "Get list of User With Filter")
+     @resolver( class: "MageINIC\\BannerSliderGraphql\\Model\\Resolver\\Slider")
+     @cache(cacheIdentity: "MageINIC\\BannerSliderGraphql\\Model\\Resolver\\Block\\Identity")
+}
+
+input SliderFilterInput {
+    slider_id: FilterTypeInput  @doc(description: "The unique ID Entity Id.")
+    status: FilterTypeInput  @doc(description: "Enable or disable filter values.")
+}
+
+type Slider {
+    slider_id: String @doc(description: "The unique Slider Id")
+    title: String @doc(description: "The ID of a CMS page.")
+    Banner(
+        pageSize: Int = 20 @doc(description: "The maximum number of results to return at once. The default value is 20."),
+        currentPage: Int = 1 @doc(description: "The page of results to return. The default value is 1."),
+        sort: BannerSortInput @doc(description: "Specifies which filed to sort on, and whether to return the results in ascending or descending order.")
+     ): BannerOutput @doc(description: "The list of banners assigned to the Slider.")
+     @resolver(class: "MageINIC\\BannerSliderGraphql\\Model\\Resolver\\Banner")
+
+}
+type SliderOutput {
+    total_count:  Int @doc(description: "")
+    items: [Slider] @doc(description: "The number of records returned.")
+}
+
+type Banner {
+   banner_id: Int @doc(description: "The unique Banner Id")
+   slider_id: String @doc(description: "The Slider Id")
+   name: String @doc(description: "Name of Banner.")
+   media_alt: String @doc(description: "Image ALT for  banner Image.")
+   media: String @doc(description: "full path of image.")
+   link: String @doc(description: "Redirection link.")
+   caption: String @doc(description: "Content of The Banner.")
+}
+input BannerSortInput @doc(description: "BannerSliderSortInput specifies the attribute to use for sorting search results and indicates whether the results are sorted in ascending or descending order.") {
+    banner_id: SortEnum @doc(description: "Id of the User")
+    name: SortEnum @doc(description: "First Name of the User.")
+}
+type BannerOutput @doc(description: "Contains details about the products assigned to a category.") {
+    items: [Banner] @doc(description: "An array of banner that are assigned to the slider.")
+    page_info: SearchResultPageInfo @doc(description: "Pagination metadata.")
+}
+
+type StoreConfig {
+    banner_slider_general_enable : String @doc(description: "Enable Functionality")
+    banner_slider_general_enable_at_home : String @doc(description: "Enable Link To redirect place")
+    banner_slider_general_home_slider : String @doc(description: "Enable Functionality for Home Page")
+    banner_slider_color_option : String @doc(description: "Choose Color for Background")
+    banner_slider_navbar : String @doc(description: "Nav Bar")
+    banner_slider_arrow : String @doc(description: "Arrow")
+    banner_slider_autoplay : String @doc(description: "Auto play")
+    banner_slider_dots : String @doc(description: "Dots")
+    banner_slider_infinite_looping : String @doc(description: "infinite play slider")
+    banner_slider_autoplay_speed : String @doc(description: "Auto Moving Slider")
+    banner_slider_breakpoints : String @doc(description: "Breakpoints")
+    banner_slider_speed : String @doc(description: "Slider Speed")
+}

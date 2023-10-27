@@ -1,0 +1,63 @@
+<!--
+/**
+ * MageINIC
+ * Copyright (C) 2023 MageINIC <support@mageinic.com>
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see https://opensource.org/licenses/gpl-3.0.html.
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category MageINIC
+ * @package MageINIC_BannerSliderGraphql
+ * @copyright Copyright (c) 2023 MageINIC (https://www.mageinic.com/)
+ * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MageINIC <support@mageinic.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\StoreGraphQl\Model\Resolver\Store\StoreConfigDataProvider">
+        <arguments>
+            <argument name="extendedConfigData" xsi:type="array">
+                <item name="banner_slider_general_enable"
+                      xsi:type="string">bannerslider/general/enable</item>
+                <item name="banner_slider_general_enable_at_home"
+                      xsi:type="string">bannerslider/general/enable_at_home</item>
+                <item name="banner_slider_general_home_slider"
+                      xsi:type="string">bannerslider/general/home_slider</item>
+                <item name="banner_slider_color_option"
+                      xsi:type="string">bannerslider/slider_setting/color_option</item>
+                <item name="banner_slider_navbar"
+                      xsi:type="string">bannerslider/slider_setting/navbar</item>
+                <item name="banner_slider_arrow"
+                      xsi:type="string">bannerslider/slider_setting/arrows_slider</item>
+                <item name="banner_slider_dots"
+                      xsi:type="string">bannerslider/slider_setting/dots_slider</item>
+                <item name="banner_slider_infinite_looping"
+                      xsi:type="string">bannerslider/slider_setting/infinite_looping</item>
+                <item name="banner_slider_autoplay"
+                      xsi:type="string">bannerslider/slider_setting/autoplay_slider</item>
+                <item name="banner_slider_autoplay_speed"
+                      xsi:type="string">bannerslider/slider_setting/autoplay_slider_speed</item>
+                <item name="banner_slider_default_slide"
+                      xsi:type="string">bannerslider/slider_setting/slide_to_show</item>
+                <item name="banner_slider_default_slick"
+                      xsi:type="string">bannerslider/slider_setting/slide_to_scroll</item>
+                <item name="banner_slider_speed"
+                      xsi:type="string">bannerslider/slider_setting/slider_speed</item>
+                <item name="banner_slider_breakpoints"
+                      xsi:type="string">bannerslider/slider_setting/breakpoints
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
