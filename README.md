@@ -22,7 +22,7 @@ Magento 2 Banner Slider GraphQL requires installing [MageINIC Banner Slider](htt
 
 **Or Install via composer [Recommend]**
 ```
-composer require mageinic/bannerslider
+composer require mageinic/banner-slider
 ```
 
 ## 2. How to use
